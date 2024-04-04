@@ -1,0 +1,30 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "nodejs-hapi-template",
+      "database": "temp_dev",
+      "username": "def_user",
+      "password": "password"
+    }
+  ],
+  "redisXplorer.config": {
+    "profiles": [
+      {
+        "name": "nodejs-hapi-template",
+        "host": "redis:6379",
+        "accessKey": "",
+        "filter": "*",
+        "port": "6379"
+      }
+    ],
+    "scanLimit": 200
+  }
+}
