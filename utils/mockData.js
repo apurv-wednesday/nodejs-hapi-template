@@ -36,6 +36,14 @@ export const mockData = {
     email: 'sharan@wednesday.is',
     oauth_client_id: 1,
   },
+  MOCK_DRIVER: {
+    id: 1,
+    name: "Test Driver",
+    licenseNumber: "ABC1234",
+    contactNumber: "123456789",
+    ratings: 5,
+    status: "available"
+  },
   MOCK_OAUTH_CLIENTS: (metadataOptions = DEFAULT_METADATA_OPTIONS) => ({
     id: 1,
     clientId: 'TEST_CLIENT_ID_1',
