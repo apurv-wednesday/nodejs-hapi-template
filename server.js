@@ -91,6 +91,10 @@ const initServer = async () => {
             description: 'Oauth2 tokens related endpoints',
           },
           {
+            name: 'fetch-cabs',
+            description: 'Fetch nearest cabs',
+          },
+          {
             name: 'reset-cache',
             description: 'Cache invalidation endpoints',
           },
