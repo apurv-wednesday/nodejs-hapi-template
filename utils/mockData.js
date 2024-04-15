@@ -36,6 +36,47 @@ export const mockData = {
     email: 'sharan@wednesday.is',
     oauth_client_id: 1,
   },
+  MOCK_DRIVER: {
+    id: 1,
+    name: 'Test Driver',
+    licenseNumber: 'ABC1234',
+    contactNumber: '123456789',
+    ratings: 5,
+    status: 'available',
+  },
+  MOCK_CABS: {
+    id: 1,
+    driverId: 1,
+    carDetailsId: 1,
+    location: {
+      type: 'Point',
+      coordinates: [1, 2],
+    },
+    status: 'available',
+  },
+  MOCK_CAR_DETAILS: {
+    id: 1,
+    car_name: 'Toyota Corolla',
+    license_plate_number: 'ABC123',
+    car_brand: 'Toyota',
+  },
+  MOCK_RIDES: {
+    id: 1,
+    userId: 1,
+    cabId: 1,
+    startPoint: {
+      type: 'Point',
+      coordinates: [1, 1],
+    },
+    endPoint: {
+      type: 'Point',
+      coordinates: [1, 2],
+    },
+    timeStart: new Date('2024-04-01T10:00:00Z'),
+    timeEnd: new Date('2024-04-01T11:00:00Z'),
+    fare: 10,
+    rideTime: 10.5,
+  },
   MOCK_OAUTH_CLIENTS: (metadataOptions = DEFAULT_METADATA_OPTIONS) => ({
     id: 1,
     clientId: 'TEST_CLIENT_ID_1',

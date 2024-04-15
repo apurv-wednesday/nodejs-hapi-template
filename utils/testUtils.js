@@ -11,6 +11,18 @@ export function configDB(metadataOptions = DEFAULT_METADATA_OPTIONS) {
   userMock.findByPk = (query) => userMock.findById(query);
   userMock.count = () => 1;
 
+  const driversMock = DBConnectionMock.define('drivers', mockData.MOCK_DRIVER);
+  driversMock.findByPk = (query) => driversMock.findById(query);
+  driversMock.count = () => 1;
+
+  const cabsMock = DBConnectionMock.define('cabs', mockData.MOCK_CABS);
+
+  const carDetailsMock = DBConnectionMock.define(
+    'car_details',
+    mockData.MOCK_CAR_DETAILS,
+  );
+  const rides = DBConnectionMock.define('rides', mockData.MOCK_RIDES);
+
   const oauthClientsMock = DBConnectionMock.define(
     'oauthClients',
     mockData.MOCK_OAUTH_CLIENTS(metadataOptions),
@@ -21,30 +33,39 @@ export function configDB(metadataOptions = DEFAULT_METADATA_OPTIONS) {
     'oauth_access_tokens',
     mockData.MOCK_OAUTH_ACCESS_TOKENS,
   );
-  oauthAccessTokensMock.create = (mutation) => new Promise((resolve) => resolve({ ...mutation }));
+  oauthAccessTokensMock.create = (mutation) =>
+    new Promise((resolve) => resolve({ ...mutation }));
 
   const oauthClientResourcesMock = DBConnectionMock.define(
     'oauth_client_resources',
     mockData.MOCK_OAUTH_CLIENT_RESOURCES[0],
   );
-  oauthClientResourcesMock.findOne = (query) => oauthClientResourcesMock.findById(query);
+  oauthClientResourcesMock.findOne = (query) =>
+    oauthClientResourcesMock.findById(query);
 
-  oauthClientResourcesMock.findAll = (query) => oauthClientResourcesMock.findById(query);
+  oauthClientResourcesMock.findAll = (query) =>
+    oauthClientResourcesMock.findById(query);
 
   const oauthClientScopesMock = DBConnectionMock.define(
     'oauth_client_scopes',
     mockData.MOCK_OAUTH_CLIENT_SCOPES,
   );
 
-  oauthClientScopesMock.findOne = (query) => oauthClientScopesMock.findById(query);
+  oauthClientScopesMock.findOne = (query) =>
+    oauthClientScopesMock.findById(query);
 
-  oauthClientScopesMock.findAll = (query) => oauthClientScopesMock.findById(query);
+  oauthClientScopesMock.findAll = (query) =>
+    oauthClientScopesMock.findById(query);
   return {
     users: userMock,
     oauthClients: oauthClientsMock,
     oauthAccessTokens: oauthAccessTokensMock,
     oauthClientResources: oauthClientResourcesMock,
     oauthClientScopes: oauthClientScopesMock,
+    drivers: driversMock,
+    cabs: cabsMock,
+    carDetails: carDetailsMock,
+    rides: rides,
   };
 }
 

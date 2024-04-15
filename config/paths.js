@@ -77,6 +77,16 @@ const paths = [
     method: 'GET',
     customValidator: async (payload) => hasScopeOverUser(payload),
   },
+  {
+    path: "/cabs/fetch",
+    scopes: [
+      SCOPE_TYPE.INTERNAL_SERVICE,
+      SCOPE_TYPE.SUPER_ADMIN,
+      SCOPE_TYPE.ADMIN,
+      SCOPE_TYPE.USER
+    ],
+    method: "POST"
+  }
 ];
 
 export default paths;
