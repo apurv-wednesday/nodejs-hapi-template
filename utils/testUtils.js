@@ -21,7 +21,9 @@ export function configDB(metadataOptions = DEFAULT_METADATA_OPTIONS) {
     'car_details',
     mockData.MOCK_CAR_DETAILS,
   );
-  const rides = DBConnectionMock.define('rides', mockData.MOCK_RIDES);
+  const ridesMock = DBConnectionMock.define('rides', mockData.MOCK_RIDES);
+  ridesMock.findByPk = (query) => ridesMock.findById(query);
+  ridesMock.count = () => 1;
 
   const oauthClientsMock = DBConnectionMock.define(
     'oauthClients',
@@ -65,7 +67,7 @@ export function configDB(metadataOptions = DEFAULT_METADATA_OPTIONS) {
     drivers: driversMock,
     cabs: cabsMock,
     carDetails: carDetailsMock,
-    rides: rides,
+    rides: ridesMock,
   };
 }
 

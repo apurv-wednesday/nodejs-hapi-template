@@ -1,6 +1,9 @@
 import { SCOPE_TYPE } from '@utils/constants';
 import { hasScopeOverUser } from '@utils/index';
 
+/**
+ * An array of path definitions representing different endpoints in the application.
+ */
 const paths = [
   {
     path: '/me',
@@ -30,7 +33,7 @@ const paths = [
   {
     path: '/oauth2/scopes',
     scopes: [SCOPE_TYPE.SUPER_ADMIN, SCOPE_TYPE.ADMIN],
-    method: 'POST',
+    method: 'PATCH',
   },
   {
     path: '/oauth2/scopes/{scopeId}',
@@ -78,15 +81,34 @@ const paths = [
     customValidator: async (payload) => hasScopeOverUser(payload),
   },
   {
-    path: "/cabs/fetch",
+    path: '/cabs/fetch',
     scopes: [
       SCOPE_TYPE.INTERNAL_SERVICE,
       SCOPE_TYPE.SUPER_ADMIN,
       SCOPE_TYPE.ADMIN,
-      SCOPE_TYPE.USER
+      SCOPE_TYPE.USER,
     ],
-    method: "POST"
-  }
+    method: 'POST',
+  },
+  {
+    path: '/driver',
+    scopes: [
+      SCOPE_TYPE.INTERNAL_SERVICE,
+      SCOPE_TYPE.SUPER_ADMIN,
+      SCOPE_TYPE.ADMIN,
+    ],
+    method: 'GET',
+  },
+  {
+    path: '/driver/{driverId}',
+    scopes: [
+      SCOPE_TYPE.INTERNAL_SERVICE,
+      SCOPE_TYPE.SUPER_ADMIN,
+      SCOPE_TYPE.ADMIN,
+      SCOPE_TYPE.USER,
+    ],
+    method: 'GET',
+  },
 ];
 
 export default paths;

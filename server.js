@@ -95,6 +95,18 @@ const initServer = async () => {
             description: 'Fetch nearest cabs',
           },
           {
+            name: 'driver',
+            description: 'User related endpoints',
+          },
+          {
+            name: "driver-start-ride",
+            description : "User books ride"
+          },
+          {
+            name : "rides",
+            description: "Fetch rides details"
+          },
+          {
             name: 'reset-cache',
             description: 'Cache invalidation endpoints',
           },
@@ -145,6 +157,7 @@ const initServer = async () => {
 
   await server.start();
 
+  // eslint-disable-next-line func-names
   const onPreHandler = function (request, h) {
     const requestQueryParams = request.query;
     const requestPayload = request.payload;
@@ -153,6 +166,7 @@ const initServer = async () => {
     return h.continue;
   };
 
+  // eslint-disable-next-line func-names
   const onPreResponse = function (request, h) {
     const { response } = request;
     const responseSource = response.source;
